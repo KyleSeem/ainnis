@@ -1,0 +1,37 @@
+.container{
+    margin: auto;
+    font-size: 1.25em;
+}
+/*p{
+    font-size: 1.25em;
+}*/
+nav{
+    margin-top: 20px;
+}
+header{
+    overflow: hidden;
+}
+section{
+    margin: auto;
+    /* margin-top: 30px; */
+    margin-bottom: 20px;
+}
+form{
+    /*border-top: 1px solid #e3e3e3;*/
+    padding-top: 1em;
+}
+
+input.btn.btn-primary{
+    float: right;
+}
+
+/* th{
+    text-align: center;
+}
+
+article{
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    overflow: hidden;
+} */

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8" name="description" content="Coding Dojo, MEAN Belt Exam">
+        <title>XXXTITLEXXX</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- access angular and angular-route -->
+        <script src="angular/angular.js"></script>
+        <script src="angular-animate/angular-animate.js"></script>
+        <script src="angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+        <script src="angular-cookies/angular-cookies.js"></script>
+        <!-- files located within this project -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="./assets/config/app.js"></script>
+        <script src="./assets/config/routes.js"></script>
+        <script src="./assets/controllers/UsersController.js"></script>
+        <script src="./assets/controllers/DateController.js"></script>
+        <script src="./assets/factories/userFactory.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <div ng-view="">
+                <!-- this is where the partials will show -->
+            </div>
+
+        </div>
+    </body>
+</html>
