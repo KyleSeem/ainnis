@@ -1,26 +1,70 @@
+<div ng-init="getProducts()"></div>
 
-<header class="page-header">
-    <h1 class="col-md-10">Welcome, {{ sessionUser.username }}!</h1>
+<header class="page-header" ng-controller="SessionController as sc">
+    <h1 class="col-md-10">Welcome, {{ sessionUser }}!</h1>
     <nav>
         <a href="#!/dashboard">Dashboard</a> |
         <a ng-click="logout()">Logout</a>
     </nav>
 </header>
 
-<section ng-controller="DateController">
-    <h3>Date Picker Popup</h3>
-    <pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>
+<section class="col-md-12">
+    <h2>Bid Now!</h2>
+    <div style="display:inline-flex;" ng-repeat="product in products">
+        <article style="flex:3">
+            <div style="margin:20px;">
+                <div class="well">
+                    <h4 style="text-align:center">{{ product.product }}</h4>
+                </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <p class="input-group">
-                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-            </p>
+        <!-- place bid form -->
+                <div ng-controller="ProductsController as pc">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input class="form-control" type="text" placeholder="Amount" ng-model="newBid.bid_amt">
+                                <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="Bid" ng-click="bid()">
+                    </form>
+                </div>
+
+                <div style="height:55px; text-align:center; margin:auto">
+                    <div ng-show="product.alert === true" style="padding-top:10px;">
+                        <small style="color:tomato;">Bid amount should be higher than the previous bid</small>
+                    </div>
+                </div>
+
+        <!-- display existing bids -->
+                <h4> current bids:</h4>
+                <div class="well" style="height:200px; overflow:scroll;">
+                    <div ng-repeat="bid in product.bids | orderBy:'-bid_amt'">
+                        <p>{{ bid.user }}: ${{ bid.bid_amt }}</p>
+                    </div>
+                </div>
+
+                <div id="search">
+                    <input class="form-control" type="text" ng-model="search" placeholder="search...">
+                </div>
+            </div>
         </div>
+    </article>
 
-    </div> <!-- close row -->
-
+    <footer>
+    <!-- end auction button -->
+        <div ng-show="products.length >= 1">
+            <div class="col-md-offset-5">
+                <a class="btn btn-warning btn-lg" ng-click="endAuction()">End Auction</a>
+            </div>
+        </div>
+    <!-- start new auction button -->
+        <div ng-show="products.length === 0">
+            <div class="col-md-offset-5">
+                <button class="btn btn-warning btn-lg" ng-click="create()">New Auction</button>
+            </div>
+        </div>
+    </footer>
 </section>

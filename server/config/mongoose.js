@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const models_path = path.resolve('server', 'models');
 
-mongoose.connect('mongodb://localhost/ainnis_db', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/bidding_db', { useMongoClient: true });
 
 mongoose.connection.on('connected', function(){
     console.log('Connection to mongoose successful');

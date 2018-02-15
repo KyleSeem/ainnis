@@ -1,13 +1,12 @@
 
-<header class="page-header">
-    <h1>Login Page <small> small words</small></h1>
+<header class="page-header col-md-offset-1">
+    <h1>Online Bid <small> belt exam</small></h1>
 </header>
 
 <!-- register form -->
-<article class="col-md-6">
-    <h3>Register</h3>
+<section class="col-md-offset-3 col-md-6">
     <div class="row">
-        <div class="col-md-8" ng-if="alertType === 'reg'">
+        <div class="col-md-11" ng-if="alerts.length > 0">
             <div class="alert alert-danger">
                 <div ng-repeat="alert in alerts">
                     {{ alert }}
@@ -18,80 +17,13 @@
 
     <form class="form-horizontal">
         <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Username:</label>
+            <div class="col-md-3">
+                <label class="control-label" style="font-size:1.25em;">Your Name:</label>
             </div>
             <div class="col-md-6">
-                <input class="form-control" type="text" ng-model="newUser.username">
+                <input class="form-control" type="text" ng-model="user">
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Email:</label>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" type="email" ng-model="newUser.email">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Password:</label>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" type="text" ng-model="newUser.password">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Confirm:</label>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" type="text" ng-model="newUser.confirm">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-8">
-                <input class="btn btn-primary" type="submit" value="Register" ng-click="register()">
-            </div>
+            <input class="btn btn-primary" type="submit" value="Enter" ng-click="login()">
         </div>
     </form>
-</article>
-
-<!-- login form -->
-<article class="col-md-6">
-    <h3>Login</h3>
-    <div class="row">
-        <div class="col-md-8" ng-if="alertType === 'log'">
-            <div class="alert alert-danger">
-                <div ng-repeat="alert in alerts">
-                    {{ alert }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <form class="form-horizontal">
-        <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Email:</label>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" type="email" ng-model="user.email">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-2">
-                <label class="control-label">Password:</label>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" type="text" ng-model="user.password">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-8">
-                <input class="btn btn-primary" type="submit" value="Login" ng-click="login()">
-            </div>
-        </div>
-    </form>
-
-</article>
+</section>

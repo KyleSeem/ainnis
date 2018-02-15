@@ -1,0 +1,33 @@
+
+<header class="page-header" ng-controller="SessionController">
+    <h1 class="col-md-10">{{ sessionUser }} ended the auction</h1>
+    <nav>
+        <a href="#!/dashboard">Dashboard</a> |
+        <a ng-click="logout()">Logout</a>
+    </nav>
+</header>
+
+
+<section ng-init="getProducts()">
+    <h3>Highest bidder per product</h3>
+
+    <div style="display:inline-flex">
+        <article style="flex:3" ng-repeat="product in products">
+            <div style="margin:20px;">
+                <div class="well">
+                    <h4 style="text-align:center">{{ product.product }}</h4>
+                </div>
+                <div ng-repeat="bid in product.bids | orderBy:'-bid_amt' | limitTo:1">
+                    <p>Winner: {{ bid.user }}</p>
+                    <p>Bid: ${{ bid.bid_amt }}</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<footer>
+    <div class="col-md-offset-5">
+        <button class="btn btn-warning btn-lg" ng-click="newAuction()">New Auction</button>
+    </div>
+</footer>
